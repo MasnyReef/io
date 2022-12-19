@@ -1,13 +1,15 @@
 package com.company;
 
+import java.util.LinkedList;
+
 public class App {
 
     private Manager manager;
     private java.util.List<Room> rooms;
 
     public App() {
-        // TODO - implement App.App
-        throw new UnsupportedOperationException();
+        this.rooms = new LinkedList<Room>();
+        rooms.add(new Room("Room1", 2, 3, 13, 1300, RoomType.Standard, RoomStatus.Free));
     }
 
     public void searchRooms() {

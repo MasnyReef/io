@@ -1,5 +1,9 @@
 package com.company;
 
+import java.util.Date;
+import java.util.List;
+import java.time.LocalDate;
+
 public class Request{
 
     protected java.util.List<Room> selectedRooms;
@@ -27,4 +31,19 @@ public class Request{
         throw new UnsupportedOperationException();
     }
 
+    public List<Room> getSelectedRooms() {
+        return selectedRooms;
+    }
+
+    public Date getReservationDate() {
+        return reservationDate;
+    }
+
+    public int getClientID() {
+        return clientID;
+    }
+
+    public int getGuestsAmount() {
+        return guestsAmount;
+    }
 }

@@ -20,6 +20,14 @@ public class Reservation extends Request{
      */
     public Reservation(java.util.List<Room> selectedRooms, java.util.Date reservationDate, int clientID, int guestsAmount) {
         super(selectedRooms, reservationDate, clientID, guestsAmount);
+        this.isConfirmed = false;
+        this.isPaid = false;
+        //ToDo zaliczka
     }
+
+//    public Reservation(Request request) {
+//        return;
+//    }
+
 
 }
