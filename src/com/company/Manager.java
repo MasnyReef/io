@@ -1,4 +1,7 @@
 package com.company;
+import java.util.
+import java.util.LinkedList;
+import java.util.Scanner;
 
 public class Manager {
 
@@ -16,13 +19,20 @@ public class Manager {
     }
 
     private Request searchRequest() {
-        // TODO - implement Manager.searchRequest
-        throw new UnsupportedOperationException();
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Podaj kryterium filtrowania\n 0 - po dacie \n 1 - po nazwisku klienta");
+        int decision = sc.nextInt();
+        //List<Request> temp = new LinkedList<Request>();
+        if(decision == 0) {
+
+        }
+        return null;
     }
 
     void confirmRequest() {
-        // TODO - implement Manager.confirmRequest
-        throw new UnsupportedOperationException();
+        Request base = searchRequest();
+        reservations.add(new Reservation(base.getSelectedRooms(), base.getReservationDate(),
+                base.getClientID(), base.getGuestsAmount()));
     }
 
     void confirmReservation() {
