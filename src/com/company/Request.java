@@ -2,6 +2,7 @@ package com.company;
 
 import java.util.Date;
 import java.util.List;
+import java.time.LocalDate;
 
 public class Request{
 
