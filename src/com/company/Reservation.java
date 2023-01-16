@@ -37,9 +37,5 @@ public class Reservation extends Request{
         this.advance = (float) (price * 0.15);
     }
 
-//    public Reservation(Request request) {
-//        return;
-//    }
-
 
 }
