@@ -1,5 +1,9 @@
 package com.company;
 
+import java.util.Date;
+import java.util.Iterator;
+import java.util.List;
+
 public class Reservation extends Request{
 
     private boolean isConfirmed;
@@ -7,8 +11,9 @@ public class Reservation extends Request{
     private float advance;
 
     public void confirm() {
-        // TODO - implement Reservation.confirm
-        throw new UnsupportedOperationException();
+        if(this.isPaid){
+            this.isConfirmed = true;
+        }
     }
 
     /**
@@ -18,11 +23,18 @@ public class Reservation extends Request{
      * @param clientID
      * @param guestsAmount
      */
-    public Reservation(java.util.List<Room> selectedRooms, java.util.Date reservationDate, int clientID, int guestsAmount) {
+    public Reservation(List<Room> selectedRooms, Date reservationDate, int clientID, int guestsAmount) {
         super(selectedRooms, reservationDate, clientID, guestsAmount);
         this.isConfirmed = false;
         this.isPaid = false;
+
         //ToDo zaliczka
+        Iterator<Room> selectedRoomsIterator = selectedRooms.iterator();
+        int price = 0;
+        while(selectedRoomsIterator.hasNext()){
+            price += selectedRoomsIterator.next().getPrice();
+        }
+        this.advance = (float) (price * 0.15);
     }
 
 //    public Reservation(Request request) {

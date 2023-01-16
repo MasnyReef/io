@@ -47,12 +47,10 @@ public class Room {
     }
 
     public RoomType getRoomType() {
-
         return this.type;
     }
 
     public RoomStatus getRoomStatus() {
-
         return this.status;
     }
 }
