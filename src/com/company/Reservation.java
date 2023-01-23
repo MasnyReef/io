@@ -1,6 +1,6 @@
 package com.company;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.Iterator;
 import java.util.List;
 
@@ -23,12 +23,11 @@ public class Reservation extends Request{
      * @param clientID
      * @param guestsAmount
      */
-    public Reservation(List<Room> selectedRooms, Date reservationDate, int clientID, int guestsAmount) {
+    public Reservation(List<Room> selectedRooms, LocalDate reservationDate, int clientID, int guestsAmount) {
         super(selectedRooms, reservationDate, clientID, guestsAmount);
         this.isConfirmed = false;
         this.isPaid = false;
 
-        //ToDo zaliczka
         Iterator<Room> selectedRoomsIterator = selectedRooms.iterator();
         int price = 0;
         while(selectedRoomsIterator.hasNext()){

@@ -1,8 +1,12 @@
 package com.company;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.List;
 import java.util.LinkedList;
 import java.util.Scanner;
+import java.util.Date;
+import java.util.stream.Collectors;
 
 public class Manager {
 
@@ -10,8 +14,8 @@ public class Manager {
     private java.util.List<Reservation> reservations;
 
     public Manager() {
-        // TODO - implement Manager.Manager
-        throw new UnsupportedOperationException();
+        this.requests = new LinkedList<>();
+        this.reservations = new LinkedList<>();
     }
 
     private Reservation searchReservation() {
@@ -65,9 +69,26 @@ public class Manager {
         throw new UnsupportedOperationException();
     }
 
-    void addRequest() {
-        // TODO - implement Manager.addRequest
-        throw new UnsupportedOperationException();
+    void addRequest(List<Room> rooms) {
+        Scanner scanner = new Scanner(System.in);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        LocalDate date;
+        while (true) {
+            System.out.print("Podaj datę w formacie yyyy-MM-dd: ");
+            String dateInput = scanner.next();
+
+            try {
+                date = LocalDate.parse(dateInput, formatter);
+                System.out.println("Data: " + date);
+                break;
+            } catch (DateTimeParseException e) {
+                System.out.println("Niepoprawny format daty, spróbuj ponownie");
+            }
+        }
+
+        System.out.println("Dla ilu osob chcesz zrobic rezerwacje?");
+        int guests = scanner.nextInt();
+        requests.add(new Request(rooms, date, 1, guests));
     }
 
 }

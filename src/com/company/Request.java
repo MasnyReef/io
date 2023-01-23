@@ -26,10 +26,6 @@ public class Request{
         this.guestsAmount = guestsAmount;
     }
 
-    public void cancel() {
-        // TODO - implement Manager.searchRequest
-        throw new UnsupportedOperationException();
-    }
 
     public List<Room> getSelectedRooms() {
         return selectedRooms;
