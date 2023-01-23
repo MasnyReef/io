@@ -13,6 +13,9 @@ public class Reservation extends Request{
     public void confirm() {
         if(this.isPaid){
             this.isConfirmed = true;
+            System.out.println("Rezerwacja potwierdzona");
+        } else {
+            System.out.println("Rezerwacja musi byc opłacona.");
         }
     }
 
@@ -35,6 +38,27 @@ public class Reservation extends Request{
         }
         this.advance = (float) (price * 0.15);
     }
+
+    @Override
+    public String toString(){
+        StringBuilder sb = new StringBuilder();
+        sb.append("Rezerwacja na dzień: " + reservationDate);
+        sb.append(" ID Klienta: " + clientID);
+        sb.append(" Ilość gości: " + guestsAmount + "\n");
+        sb.append("Wybrane pokoje: \n");
+        for (int i = 0; i < selectedRooms.size(); i++) {
+            sb.append(i + ". " + selectedRooms.get(i) + "\n");
+        }
+        sb.append("Oplacona? " + isPaid + "\n");
+        sb.append("Potwierdzona? " + isConfirmed);
+        return sb.toString();
+    }
+
+    public void pay() {
+        this.isPaid = true;
+    }
+
+
 
 
 }

@@ -30,6 +30,18 @@ public class Room {
         this.status = status;
     }
 
+    @Override
+    public String toString() {
+        return
+                "name='" + name + '\'' +
+                ", bedsTwin=" + bedsTwin +
+                ", bedsSingle=" + bedsSingle +
+                ", maxGuests=" + maxGuests +
+                ", price=" + price +
+                ", type=" + type +
+                ", status=" + status;
+    }
+
     public String getName() {
         return this.name;
     }
